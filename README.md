@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="https://raw.githubusercontent.com/xXehub/system-employee/master/screenshot/create-employee.png" width="900" alt="System Employee" />
+  <img src="https://raw.githubusercontent.com/xXehub/final-system-barang/main/screenshot/dashboard-ui.png" width="900" alt="System Management Barang" />
 
   <a href="#">Demo</a>
 
@@ -8,7 +8,7 @@
   <!-- <a href="https://systememployeemain.netlify.app">Demo</a> -->
 </div>
 
-<h1 align="center">System Employee Main</h1>
+<h1 align="center">Final Assigment Mini-Proect System Management Barang</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/xXehub/system-employee?">
