@@ -52,7 +52,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
                                     <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
-                                    <li class="breadcrumb-item text-muted active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item text-muted active" aria-current="page">{{ $ingfo_sakkarepmu }}</li>
                                 </ol>
                             </nav>
                         </div>

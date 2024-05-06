@@ -36,6 +36,10 @@
                             class="hide-menu">Satuan
                         </span></a>
                     <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                        <li class="sidebar-item"><a href="{{ route('satuan.index') }}" class="sidebar-link"><span
+                                    class="hide-menu"> List Satuan
+                                </span></a>
+                        </li>
                         <li class="sidebar-item"><a href="{{ route('satuan.create') }}" class="sidebar-link"><span
                                     class="hide-menu"> Tambah Satuan
                                 </span></a>
@@ -47,7 +51,7 @@
 
                 <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
 
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{route('logout')}}"
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('logout') }}"
                         aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
                             class="hide-menu">Logout</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"

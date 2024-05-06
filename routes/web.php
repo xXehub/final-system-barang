@@ -11,9 +11,9 @@ use App\Http\Controllers\ProfileController;
 // use App\Http\Controllers\EmployeeController;
 
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
+Route::get('/', function () {
+    return view('dashboard');
+});
 // login
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login-proses', [LoginController::class, 'login_proses'])->name('login-proses'); // gawe loginan
