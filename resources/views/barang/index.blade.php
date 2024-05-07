@@ -15,6 +15,12 @@
         <!-- <link href="../assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet"> -->
         @vite('resources/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')
         @vite('resources/assets/extra-libs/datatables.net-bs4/css/responsive.dataTables.min.css')
+        <!-- Memuat jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- Memuat plugin DataTables -->
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
     </head>
     <div class="row">
         <div class="col-12">
@@ -37,12 +43,12 @@
                     <h6 class="card-subtitle">Tabel ini digunakan untuk menampilkan seluruh isi database tabel
                         <code> $().Barangs();</code>. Bisa ditambahkan melalui button di atas
                     </h6>
-                    
-                    <div class="table-responsive">
-                        <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+
+                    <div class="table-responsive" >
+                        <table class="table border table-striped table-bordered text-nowrap datatable" id="barangTable">
                             <thead>
                                 <tr>
-                                    <th>Kode Barang</th>
+                                    <th>Kode</th>
                                     <th>Nama Barang</th>
                                     <th>Harga</th>
                                     <th>Deskripsi</th>
@@ -50,19 +56,6 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @foreach ($barangs as $barang_sakkarepmu)
-                                    <tr>
-                                        <td>{{ $barang_sakkarepmu->kode_barang }}</td>
-                                        <td>{{ $barang_sakkarepmu->nama_barang }}</td>
-                                        {{-- formatting rupiah --}}
-                                        <td>{{ number_format($barang_sakkarepmu->harga_barang, 0, ',', '.') }}</td>
-                                        <td>{{ $barang_sakkarepmu->deskripsi_barang }}</td>
-                                        <td>{{ $barang_sakkarepmu->Satuan->kode_satuan }}</td>
-                                        <td>@include('barang.actions')</td>
-                                    </tr>
-                                @endforeach
-                                </tfoot>
                         </table>
                     </div>
                 </div>
@@ -70,6 +63,32 @@
         </div>
     </div>
 
+    {{-- gawe notif sukses --}}
+    @if ($message = Session::get('hapus'))
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "success",
+                title: '{{ $message }}'
+            });
+        </script>
+    @endif
+    {{-- jquery all --}}
+    @vite('resources/assets/libs/jquery/dist/jquery.min.js')
+    <!-- Bootstrap tether Core JavaScript -->
+    {{-- @vite('resources/assets/libs/popper.js/dist/umd/popper.min.js') --}}
+    @vite('resources/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')
+    {{-- plugin datatable --}}
     @vite('resources/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js')
     @vite('resources/assets/extra-libs/datatables.net-bs4/js/dataTables.responsive.min.js')
     @vite('resources/dist/js/pages/datatable/datatable-basic.init.js')

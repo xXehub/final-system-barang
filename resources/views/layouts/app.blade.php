@@ -14,6 +14,7 @@
     <!-- Custom CSS -->
         @vite('resources/sass/app.scss')
     @vite('resources/dist/css/style.min.css')
+    
     {{-- <link href="../dist/css/style.min.css" rel="stylesheet"> --}}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,14 +37,11 @@
 
     <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
-        {{-- TOP BAR --}}
+        {{-- top bar moas --}}
         @include('layouts.navbar')
-        {{-- side bar --}}
+        {{-- side bar e puh sepuh --}}
         @include('layouts.sidebar')
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
@@ -62,22 +60,18 @@
             {{-- container fluid --}}
             <div class="container-fluid">
                 @yield('content')
+                @vite('resources/js/app.js')
+                @stack('scripts')
             </div>
             <footer class="footer text-center text-muted">
                 All Rights Reserved by Sihub. Designed and Developed by <a href="https://localhost.com/">Hubsense</a>.
             </footer>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
 
+    {{-- script --}}
     @vite('resources/assets/libs/jquery/dist/jquery.min.js')
-    @vite('resources/assets/libs/popper.js/dist/umd/popper.min.js')
+    {{-- @vite('resources/assets/libs/popper.js/dist/umd/popper.min.js') --}}
     @vite('resources/dist/js/app-style-switcher.js')
     @vite('resources/dist/js/feather.min.js')
     @vite('resources/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')

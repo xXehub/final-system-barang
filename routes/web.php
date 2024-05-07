@@ -30,4 +30,6 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout'); // gaw
     Route::resource('satuan', SatuanController::class);
     // Route::put('/employees/{id}', 'EmployeeController@update')->name('employees.update');
 
+    // get data
+    Route::get('data/barang', [BarangController::class, 'getData'])->name('barang.data');
 // });

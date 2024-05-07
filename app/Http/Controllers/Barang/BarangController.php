@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Barang; //nyeluk models barang
 use App\Models\Satuan; //nyeluk models satuan
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class BarangController extends Controller
 {
@@ -74,7 +75,7 @@ class BarangController extends Controller
             $barang->satuan_id = $request->satuan;
             $barang->save();
             // return redirect()->route('barang.index');
-            return redirect()->route('barang.index')->with('success', 'Barang berhasil ditambahkan.');
+            return redirect()->route('barang.index')->with('simpan', 'Barang berhasil ditambahkan.');
         }
     }
 
@@ -141,7 +142,7 @@ class BarangController extends Controller
             $barang->deskripsi_barang = $request->deskripsi_barang;
             $barang->satuan_id = $request->satuan;
             $barang->save();
-            return redirect()->route('barang.index');
+            return redirect()->route('barang.index')->with('success', 'Barang berhasil ditambahkan.');
         }
     }
 
@@ -154,7 +155,23 @@ class BarangController extends Controller
     public function destroy($id)
     { {
             Barang::find($id)->delete();
-            return redirect()->route('barang.index');
+            return redirect()->route('barang.index')->with('hapus', 'Barang berhasil dihapus.');
+        
+        }
+    }
+
+    // get data gawe datatable
+    public function getData(Request $request)
+    {
+        $barangs = Barang::with('satuan');
+
+        if ($request->ajax()) {
+            return datatables()->of($barangs)
+                ->addIndexColumn()
+                ->addColumn('actions', function($barang) {
+                    return view('barang.actions', compact('barang'));
+                })
+                ->toJson();
         }
     }
 }
