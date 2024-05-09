@@ -1,18 +1,19 @@
-<div class="d-flex">
-    <a href="{{ route('barang.show', ['barang' => $barang->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi bi-inboxes"></i></a>
-    <a href="{{ route('barang.edit', ['barang' => $barang->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
-
-    <div>
-        <form id="delete-form-{{$barang->id}}" action="{{ route('barang.destroy', ['barang' => $barang->id]) }}" method="POST">
+{{-- multi group --}}
+<form id="delete-form-{{ $barang->id }}" action="{{ route('barang.destroy', ['barang' => $barang->id]) }}"
+    method="POST">
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+            <a type="button" href="{{ route('barang.show', ['barang' => $barang->id]) }}" class="btn btn-secondary"><i
+                    class="ti-search"></i></a>
+            <a type="button" href="{{ route('barang.edit', ['barang' => $barang->id]) }}" class="btn btn-secondary"><i
+                    class="ti-pencil-alt"></i></a>
             @csrf
             @method('delete')
-            <button type="button" class="btn btn-outline-dark btn-sm me-2" onclick="confirmDelete({{$barang->id}})"><i class="bi-trash"></i></button>
-        </form>
+            <button type="button" class="btn btn-secondary" onclick="confirmDelete({{ $barang->id }})"><i
+                    class="ti-trash"></i></button>
+        </div>
     </div>
-</div>
-
-
-
+</form>
 {{-- SweetAlert Library --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -56,4 +57,3 @@
         });
     </script>
 @endif
-

@@ -164,14 +164,22 @@ class BarangController extends Controller
     public function getData(Request $request)
     {
         $barangs = Barang::with('satuan');
-
+    
         if ($request->ajax()) {
             return datatables()->of($barangs)
                 ->addIndexColumn()
+                ->addColumn('nama_satuan', function($barang) { // Menambahkan kolom 'nama_satuan'
+                    return $barang->satuan->nama_satuan;
+                })
+                ->addColumn('kode_satuan', function($barang) { // Menambahkan kolom 'kode_satuan'
+                    return $barang->satuan->kode_satuan;
+                })
                 ->addColumn('actions', function($barang) {
                     return view('barang.actions', compact('barang'));
                 })
                 ->toJson();
         }
     }
+    
+    
 }

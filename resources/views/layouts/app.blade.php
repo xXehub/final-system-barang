@@ -70,14 +70,19 @@
     </div>
 
     {{-- script --}}
+    {{-- jquert --}}
     @vite('resources/assets/libs/jquery/dist/jquery.min.js')
-    {{-- @vite('resources/assets/libs/popper.js/dist/umd/popper.min.js') --}}
+    @vite('resources/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')
+
+    @vite('resources/assets/libs/popper.js/dist/umd/popper.min.js')
+
     @vite('resources/dist/js/app-style-switcher.js')
     @vite('resources/dist/js/feather.min.js')
     @vite('resources/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')
     @vite('resources/assets/extra-libs/sparkline/sparkline.js')
     @vite('resources/dist/js/sidebarmenu.js')
     @vite('resources/dist/js/custom.min.js')
+
 </body>
 
 </html>

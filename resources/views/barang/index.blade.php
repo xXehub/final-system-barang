@@ -39,10 +39,10 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title">Note : </h4>
+                    {{-- <h4 class="card-title">Note : </h4>
                     <h6 class="card-subtitle">Tabel ini digunakan untuk menampilkan seluruh isi database tabel
                         <code> $().Barangs();</code>. Bisa ditambahkan melalui button di atas
-                    </h6>
+                    </h6> --}}
 
                     <div class="table-responsive" >
                         <table class="table border table-striped table-bordered text-nowrap datatable" id="barangTable">

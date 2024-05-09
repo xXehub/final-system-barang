@@ -2,92 +2,6 @@
 
 @section('content')
     <div class="container-fluid">
-        {{-- form label --}}
-        {{--  
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Grid With Row Label</h4>
-                    <form action="#">
-                        <div class="form-body">
-                            <div class="form-group mb-3">
-                                <div class="row">
-                                    <label class="col-lg-1">Kode</label>
-                                    <div class="col-lg-11">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control"
-                                                    placeholder="col-md-12">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div class="row">
-                                    <label class="col-lg-1">Nama</label>
-                                    <div class="col-lg-11">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control"
-                                                    placeholder="col-md-12">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div class="row">
-                                    <label class="col-lg-1">Harga</label>
-                                    <div class="col-lg-11">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control"
-                                                    placeholder="col-md-12">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div class="row">
-                                    <label class="col-lg-1">Satuan</label>
-                                    <div class="col-lg-11">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control"
-                                                    placeholder="col-md-12">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <div class="row">
-                                    <label class="col-lg-1">Desc</label>
-                                    <div class="col-lg-11">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control"
-                                                    placeholder="col-md-12">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-actions">
-                            <div class="text-end">
-                                <button type="submit" class="btn btn-info">Submit</button>
-                                <button type="reset" class="btn btn-dark">Reset</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> --}}
         <form action="{{ route('barang.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -173,10 +87,30 @@
         </form>
     </div>
 
+    <script>
+// gawe random string kode_barang
+function randomKode_sakkarepmu(length) {
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var result = '';
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
+
+// Call the function to generate random string and update the kode_barang input
+document.addEventListener('DOMContentLoaded', function() {
+    var kode_barang_input = document.getElementById('kode_barang');
+    kode_barang_input.value = 'BRG-' + randomKode_sakkarepmu(3); // gawe selalu generate kode barang anyar
+});
+
+
+        </script>
+
     {{-- library sweetalert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- gawe nyeluk js pek --}}
-    @vite('resources/js/barang.js')
+    {{-- @vite('resources/js/barang.js') --}}
 
     {{-- gawe simpan barang --}}
     {{-- Notifikasi setelah penghapusan --}}
